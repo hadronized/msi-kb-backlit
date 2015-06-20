@@ -1,5 +1,5 @@
 name:                msi-kb-backlit
-version:             0.1
+version:             0.1.0.1
 synopsis:            A command line tool to change backlit colors of your MSI
                      keyboards
 description:         Change the backlit colors of your MSI keyboards!

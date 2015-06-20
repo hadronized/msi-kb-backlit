@@ -165,20 +165,24 @@ main :: IO ()
 main = do
   _ <- System.HID.init
 
-  (matched,_,errors) <- fmap (getOpt Permute options) getArgs
-  let mode = confMode matched
-      regions = confRegions matched
-      wrong = confWrong matched
-  if (not $ null errors)
-  then do
-    traverse_ err errors
+  args <- getArgs
+  if null args then
     putStrLn usage
-  else do
-    if (not $ null wrong)
-    then do
-      err wrong
-    else
-      setColors mode regions
+    else do
+      let (matched,_,errors) = getOpt Permute options args
+          mode = confMode matched
+          regions = confRegions matched
+          wrong = confWrong matched
+      if (not $ null errors)
+      then do
+        traverse_ err errors
+        putStrLn usage
+      else do
+        if (not $ null wrong)
+        then do
+          err wrong
+        else
+          setColors mode regions
 
-  _ <- exit
-  pure ()
+      _ <- exit
+      pure ()
