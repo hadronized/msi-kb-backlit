@@ -13,14 +13,20 @@ description:         Change the backlit colors of your MSI keyboards!
                      Successfully tested on a **MSI GS60 Ghost Pro 2QE**.
 license:             BSD3
 license-file:        LICENSE
+bug-reports:         https://github.com/phaazon/msi-kb-backlit/issues
 author:              Dimitri Sabadie <dimitri.sabadie@gmail.com>
 maintainer:          Dimitri Sabadie <dimitri.sabadie@gmail.com>
 copyright:           Dimitri Sabadie
+
 category:            System
 build-type:          Simple
 
 extra-source-files:  CHANGELOG.md
 cabal-version:       >= 1.10
+
+source-repository head
+  type:     git
+  location: git://github.com/phaazon/msi-kb-backlit.git
 
 executable msi-kb-backlit
   ghc-options:         -W -Wall -O2
